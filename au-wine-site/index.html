@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页 | Shanghai Tannins Brilliant</title>
+    <link rel="stylesheet" href="style.css"> <!-- 引入公共CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* 仅主页特有的样式 */
+        #home {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=2940&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            filter: brightness(0.35); transform: scale(1.1);
+            animation: breathe 25s infinite alternate; z-index: -1;
+        }
+        .hero-content { text-align: center; max-width: 900px; padding: 0 20px; animation: fadeInUp 1.5s ease forwards; }
+        .hero-company { font-family: 'Montserrat', sans-serif; color: var(--accent-color); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+        .hero-slogan { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 300; }
+        .hero-vision { font-size: 1.2rem; color: #a0a0a0; font-style: italic; }
+
+        /* 关于我们二维码样式 */
+        .qrcode-box {
+            margin-top: 3rem;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            display: inline-block;
+            border: 1px solid var(--accent-color);
+        }
+        .qrcode-box img { width: 150px; height: 150px; display: block; margin-bottom: 10px; }
+        .qrcode-text { color: var(--accent-color); font-size: 0.9rem; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo-container"><img src="image/logo.png" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="index.html" class="active">首页</a>
+            <a href="products.html">产品与服务</a>
+            <a href="sa-lifestyle.html">南澳风情</a>
+            <a href="#about">关于我们</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-company">Shanghai Tannins Brilliant</span>
+            <h1 class="hero-slogan">光影单宁，琥珀之光</h1>
+            <p class="hero-vision">“连接南澳风土，成就东方味觉”</p>
+        </div>
+    </section>
+
+    <!-- About Section with QR Code -->
+    <section id="about" style="background-color: #050505; text-align: center;">
+        <div class="fade-in" style="max-width: 800px; margin: 0 auto;">
+            <h2 class="section-title">About Us</h2>
+            <p style="color:var(--accent-color); margin-bottom:2rem;">Bridging South Australian Terroir and Chinese Taste</p>
+            <p style="color: #999; line-height: 2; margin-bottom: 2rem;">
+                上海单宁琥珀光致力于将最纯正的澳洲产品带给全世界。
+                
+            </p>
+            
+            <!-- 公众号二维码板块 -->
+            <div class="qrcode-box">
+                <img src="image/wechat.png" alt="WeChat QR Code">
+                <span class="qrcode-text">关注官方公众号</span>
+            </div>
+            
+            <div style="margin-top:2rem; font-family:'Playfair Display'; font-style:italic; font-size:1.5rem;">
+                Let Terroir Be Understood by the World
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo">Shanghai Tannins Brilliant</span>
+        <p style="color: #666; font-size: 0.8rem;">&copy; 2025 STB. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // 简单动画脚本
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>

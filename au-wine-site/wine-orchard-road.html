@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022 Orchard Road Cabernet Sauvignon | STB</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo-container"><img src="image/logo.png" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="products.html" class="active">产品与服务</a>
+            <a href="sa-lifestyle.html">南澳风情</a>
+            <a href="index.html#about">关于我们</a>
+        </div>
+    </nav>
+
+    <section class="product-detail-section fade-in">
+        <div class="detail-container">
+            <div class="detail-img-box">
+                <img src="image/2022 Orchard Road Cabernet Sauvignon.webp" alt="Orchard Road Cabernet">
+            </div>
+            <div class="detail-info">
+                <span style="color:#999; letter-spacing:2px; font-size:0.9rem;">CLARE VALLEY STAR</span>
+                <h1>2022 Orchard Road<br>果园路赤霞珠</h1>
+                <span class="detail-price">¥ 399.00</span>
+                <span style="display:block; color:var(--accent-color); margin-bottom:1rem; font-style:italic;">“自然造物，传承酿艺 Crafted by Nature”</span>
+
+                <div class="detail-specs">
+                    <div class="spec-item"><strong>年份：</strong>2022</div>
+                    <div class="spec-item"><strong>产区：</strong>克莱尔谷 (Clare Valley)</div>
+                    <div class="spec-item"><strong>葡萄品种：</strong>100% 赤霞珠 (Cabernet Sauvignon)</div>
+                    <div class="spec-item"><strong>窖藏潜力：</strong>12 至 15 年</div>
+                </div>
+
+                <div class="detail-desc">
+                    <p>由于克莱尔谷凉爽的成熟温度和较高的地形，这个品种已成为该地区葡萄酒系列的真正明星。</p>
+
+                    <h3>品鉴笔记 Tasting Notes</h3>
+                    <p><strong>色泽：</strong>深红色，带有年轻的深红色调。</p>
+                    <p><strong>香气：</strong>散发出成熟黑醋栗的浓郁香气，Underlying 些许叶片气息、花园薄荷、雪茄盒以及微妙的法国橡木特征。</p>
+                    <p><strong>口感：</strong>平衡的酸度和细腻的单宁是这款葡萄酒的真正亮点。</p>
+
+                    <h3>酿造工艺 Winemaking</h3>
+                    <p>这款酒由来自克莱尔谷三个独立且独特的葡萄园的葡萄混酿而成。酿造过程非常传统：开放式发酵、手工压帽、篮式压榨至新的和旧的小型法国橡木桶中。所有批次的葡萄酒在最终调配装瓶前都保持独立，装瓶过程未经过澄清和过滤。</p>
+
+                    <a href="products.html" class="back-btn">← 返回产品列表</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer><p style="color: #666; font-size: 0.8rem; text-align: center;">&copy; 2025 STB. All Rights Reserved.</p></footer>
+<script>
+        // 1. 让内容渐入显示的动画脚本
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 2. 导航栏滚动变色脚本
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

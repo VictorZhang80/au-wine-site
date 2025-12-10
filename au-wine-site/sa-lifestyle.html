@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南澳风情 | STB</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .sa-header {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), var(--bg-dark)), url('https://images.unsplash.com/photo-1533090481720-856c6e3c19c5?q=80&w=2940&auto=format&fit=crop');
+            background-size: cover; background-attachment: fixed;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 0 10%;
+        }
+        .vlog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .news-card { background: var(--bg-card); transition: 0.3s; }
+        .news-card:hover { border-bottom: 2px solid var(--accent-color); }
+        .news-img { height: 200px; background: #222; overflow: hidden; }
+        .news-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .news-card:hover .news-img img { transform: scale(1.1); }
+        .news-content { padding: 1.5rem; }
+        .news-date { font-size: 0.8rem; color: var(--accent-color); margin-bottom: 0.5rem; display: block; }
+        .news-title { font-size: 1.2rem; margin-bottom: 1rem; color: #fff; }
+        .read-more { color: #fff; text-decoration: none; border-bottom: 1px dotted #666; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo-container"><img src="image/logo.png" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="products.html">产品与服务</a>
+            <a href="sa-lifestyle.html" class="active">南澳风情</a>
+            <a href="index.html#about">关于我们</a>
+        </div>
+    </nav>
+
+    <div class="sa-header">
+        <div class="fade-in">
+            <h2 style="font-size:3rem; margin-bottom:1rem; color: #fff;">South Australia</h2>
+            <p style="font-size:1.2rem; color: #ccc;">南半球的红酒之心，纯净生活方式的代名词。</p>
+        </div>
+    </div>
+
+    <section>
+        <h3 class="section-title fade-in" style="font-size:1.8rem;">南澳印象 & 市场动态 Vlog</h3>
+        
+        <div class="vlog-grid">
+            <!-- 占位文章 1 -->
+            <div class="news-card fade-in">
+                <div class="news-img"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2940&auto=format&fit=crop"></div>
+                <div class="news-content">
+                    <span class="news-date">2024.05.20 | 市场活动</span>
+                    <h4 class="news-title">上海国际酒展回顾：STB展台集锦</h4>
+                    <a href="#" class="read-more">阅读全文 &rarr;</a>
+                </div>
+            </div>
+
+            <!-- 占位文章 2 -->
+            <div class="news-card fade-in">
+                <div class="news-img"><img src="https://images.unsplash.com/photo-1574672280602-95995c077e5e?q=80&w=2874&auto=format&fit=crop"></div>
+                <div class="news-content">
+                    <span class="news-date">2024.05.15 | 南澳Vlog</span>
+                    <h4 class="news-title">探访百年老藤：西拉的秘密</h4>
+                    <a href="#" class="read-more">观看视频 &rarr;</a>
+                </div>
+            </div>
+            
+            <!-- 未来你在这里复制粘贴添加新内容 -->
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo">Shanghai Tannins Brilliant</span>
+        <p style="color: #666; font-size: 0.8rem;">&copy; 2025 STB. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>

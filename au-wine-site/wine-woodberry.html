@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2020 Woodberry Shiraz | STB</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo-container"><img src="image/logo.png" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="products.html" class="active">产品与服务</a>
+            <a href="sa-lifestyle.html">南澳风情</a>
+            <a href="index.html#about">关于我们</a>
+        </div>
+    </nav>
+
+    <section class="product-detail-section fade-in">
+        <div class="detail-container">
+            <div class="detail-img-box">
+                <img src="image/2020 Woodberry Shiraz.webp" alt="Woodberry Shiraz">
+            </div>
+            <div class="detail-info">
+                <span style="color:#999; letter-spacing:2px; font-size:0.9rem;">WOODVALE FLAGSHIP</span>
+                <h1>2020 Woodberry Shiraz<br>林间浆果西拉子</h1>
+                <span class="detail-price">¥ 569.00</span>
+
+                <div class="detail-specs">
+                    <div class="spec-item"><strong>年份：</strong>2020</div>
+                    <div class="spec-item"><strong>产区：</strong>克莱尔谷 (Clare Valley)</div>
+                    <div class="spec-item"><strong>葡萄品种：</strong>100% 西拉子 (Shiraz)</div>
+                    <div class="spec-item"><strong>窖藏潜力：</strong>15 年以上</div>
+                </div>
+
+                <div class="detail-desc">
+                    <p>“经典传承，匠心铸就”。The Woodberry 是 Woodvale 酒庄全新推出的旗舰级西拉子佳酿，凝聚了克莱尔谷风土精髓与酒庄手工酿造的精湛技艺。</p>
+
+                    <h3>品鉴笔记 Tasting Notes</h3>
+                    <p><strong>色泽：</strong>砖红色酒体中泛出明亮的宝石红光泽，展现出典型的优质西拉子色调。</p>
+                    <p><strong>香气：</strong>香气浓郁而复杂，主调为熟李子、红色浆果，辅以甘草与雪松橡木的气息，层次分明，引人入胜。</p>
+                    <p><strong>口感：</strong>酒体浓郁饱满，结构紧密，带有黑巧克力、黑橄榄与松露的深沉风味，再以精细法式橡木桶的香料与烘烤风味贯穿始终，余韵绵长、优雅收结。</p>
+
+                    <h3>酿造工艺 Winemaking</h3>
+                    <p>源自单一葡萄园 Woodberry 园区。全手工采摘、发酵期间每日手工搅皮，使用传统篮式压榨。主发酵在熟化法国橡木桶（hogsheads）中完成，熟成时间长达 18 个月。未经澄清、未经过滤，最大程度保留葡萄本味与风土表达。</p>
+
+                    <h3>餐酒搭配 Pairing</h3>
+                    <p>非常适合搭配风味浓郁、质地丰富的菜肴：香煎和牛肋眼牛排 (Pan-seared Wagyu Ribeye Steak) 或蓝纹奶酪烤土豆。咸鲜风味与油脂的平衡令人印象深刻。</p>
+
+                    <a href="products.html" class="back-btn">← 返回产品列表</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer><p style="color: #666; font-size: 0.8rem; text-align: center;">&copy; 2025 STB. All Rights Reserved.</p></footer>
+<script>
+        // 1. 让内容渐入显示的动画脚本
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 2. 导航栏滚动变色脚本
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

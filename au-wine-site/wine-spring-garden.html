@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022 Spring Garden Shiraz | STB</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo-container"><img src="image/logo.png" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="products.html" class="active">产品与服务</a>
+            <a href="sa-lifestyle.html">南澳风情</a>
+            <a href="index.html#about">关于我们</a>
+        </div>
+    </nav>
+
+    <section class="product-detail-section fade-in">
+        <div class="detail-container">
+            <div class="detail-img-box">
+                <img src="image/2022 Spring Garden Shiraz.webp" alt="Spring Garden Shiraz">
+            </div>
+            <div class="detail-info">
+                <span style="color:#999; letter-spacing:2px; font-size:0.9rem;">COOL CLIMATE SHIRAZ</span>
+                <h1>2022 Spring Garden Shiraz<br>春园西拉子</h1>
+                <span class="detail-price">¥ 399.00</span>
+
+                <div class="detail-specs">
+                    <div class="spec-item"><strong>年份：</strong>2022</div>
+                    <div class="spec-item"><strong>产区：</strong>克莱尔谷 (Armagh & Sevenhill)</div>
+                    <div class="spec-item"><strong>葡萄品种：</strong>100% 西拉子 (Shiraz)</div>
+                    <div class="spec-item"><strong>评分：</strong>WineOrbit 94 Points</div>
+                </div>
+
+                <div class="detail-desc">
+                    <p>这款混酿西拉子取材自克莱尔山谷精心挑选的葡萄园，以酒庄庄主 Kevin 的曾外祖父汤姆·杜克（Tom Duke）的家族农庄“Spring Gardens”命名。</p>
+
+                    <h3>品鉴笔记 Tasting Notes</h3>
+                    <p><strong>色泽：</strong>砖红色酒体中透出年轻的深紫红边。</p>
+                    <p><strong>香气：</strong>鼻端洋溢着熟李子、橄榄酱与樱桃可乐的迷人香气，细腻的法国橡木烘烤香气隐隐点缀其间。</p>
+                    <p><strong>口感：</strong>酒体中等，带有绵密柔顺的质感，完美诠释了冷凉年份的优雅风格。入口后，熟李与黑樱桃风味延续鼻中印象，天然酸度恰到好处，带来清新与活力。</p>
+
+                    <h3>餐酒搭配 Pairing</h3>
+                    <p>冷凉风格使其与白肉、海鲜亦相得益彰。推荐：香草黄油煎三文鱼 (Grilled Salmon) 或 香煎鸡胸配柠檬奶油酱 (Chicken Piccata)。</p>
+
+                    <a href="products.html" class="back-btn">← 返回产品列表</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer><p style="color: #666; font-size: 0.8rem; text-align: center;">&copy; 2025 STB. All Rights Reserved.</p></footer>
+<script>
+        // 1. 让内容渐入显示的动画脚本
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 2. 导航栏滚动变色脚本
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

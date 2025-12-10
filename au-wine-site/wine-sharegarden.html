@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021 Sharegarden Shiraz | STB</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo-container"><img src="image/logo.png" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="products.html" class="active">产品与服务</a>
+            <a href="sa-lifestyle.html">南澳风情</a>
+            <a href="index.html#about">关于我们</a>
+        </div>
+    </nav>
+
+    <section class="product-detail-section fade-in">
+        <div class="detail-container">
+            <div class="detail-img-box">
+                <img src="image/2021 Sharegarden Shiraz.webp" alt="Sharegarden Shiraz">
+            </div>
+            <div class="detail-info">
+                <span style="color:#999; letter-spacing:2px; font-size:0.9rem;">PREMIUM VALUE</span>
+                <h1>2021 Sharegarden Shiraz<br>享园西拉子</h1>
+                <span class="detail-price">¥ 269.00</span>
+
+                <div class="detail-specs">
+                    <div class="spec-item"><strong>年份：</strong>2021</div>
+                    <div class="spec-item"><strong>产区：</strong>克莱尔谷 (Clare Valley)</div>
+                    <div class="spec-item"><strong>葡萄品种：</strong>100% 西拉子 (Shiraz)</div>
+                    <div class="spec-item"><strong>窖藏潜力：</strong>10 年</div>
+                </div>
+
+                <div class="detail-desc">
+                    <p>来自克莱尔谷三个不同葡萄园的混酿，在最终调配前各个地块的酒液分别处理，未经过澄清和过滤。</p>
+
+                    <h3>品鉴笔记 Tasting Notes</h3>
+                    <p><strong>色泽：</strong>砖红色，带有深红色的光泽。</p>
+                    <p><strong>香气：</strong>鼻腔中弥漫着浓郁的李子、红色水果、淡淡的法国橡木烘烤以及黑巧克力的香气。</p>
+                    <p><strong>口感：</strong>口中黑巧克力和橄榄酱的风味非常突出，并与红色水果、更成熟的李子以及饼干般的细致单宁完美融合，余味悠长。</p>
+
+                    <h3>酿造工艺 Winemaking</h3>
+                    <p>每个地块的葡萄都在大约 14.0 白利糖度时采摘，经过破碎后在开放式发酵罐中发酵，然后通过篮式压榨法压榨到旧的、使用过的法国橡木桶中熟化 15 个月。</p>
+
+                    <a href="products.html" class="back-btn">← 返回产品列表</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer><p style="color: #666; font-size: 0.8rem; text-align: center;">&copy; 2025 STB. All Rights Reserved.</p></footer>
+<script>
+        // 1. 让内容渐入显示的动画脚本
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 2. 导航栏滚动变色脚本
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

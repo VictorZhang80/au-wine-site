@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品与服务 | STB</title>
+    <!-- 引用公共样式 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 引用字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 本页面特有的样式补充 */
+        .page-header {
+            padding-top: 8rem;
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* 选项卡按钮容器 */
+        .tabs-container { 
+            display: flex; 
+            justify-content: center; 
+            margin-bottom: 3rem; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+        }
+        
+        .tab-btn { 
+            background: none; 
+            border: none; 
+            padding: 1rem 2.5rem; 
+            color: var(--text-muted); 
+            font-size: 1.1rem; 
+            cursor: pointer; 
+            position: relative; 
+            font-family: var(--font-sans);
+            transition: color 0.3s;
+        }
+        
+        .tab-btn:hover { color: #fff; }
+        .tab-btn.active { color: var(--accent-color); font-weight: 500; }
+        .tab-btn.active::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -1px; 
+            left: 0; 
+            width: 100%; 
+            height: 2px; 
+            background-color: var(--accent-color); 
+        }
+
+        /* 选项卡内容区域 - 默认隐藏，active时显示 */
+        .tab-content { 
+            display: none; 
+            animation: fadeInUp 0.5s ease; 
+            min-height: 500px; /* 防止切换时页面高度跳动 */
+        }
+        .tab-content.active { display: block; }
+
+        /* 红酒网格 */
+        .grid-5 { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        
+        /* 修改为 a 标签样式，使其作为链接卡片 */
+        a.wine-card { 
+            display: block;
+            text-decoration: none;
+            background: var(--bg-card); 
+            border: 1px solid rgba(255,255,255,0.05); 
+            padding: 1.5rem; 
+            text-align: center; 
+            transition: transform 0.3s; 
+        }
+        a.wine-card:hover { transform: translateY(-10px); border-color: var(--accent-color); }
+        
+        .wine-img-box { 
+            height: 300px; 
+            margin-bottom: 1rem; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background-color: #000; 
+            overflow: hidden;
+        }
+        .wine-img-box img { 
+            height: 100%; 
+            width: auto; 
+            max-width: 100%; 
+            object-fit: contain; 
+        }
+        a.wine-card h3 { 
+            font-size: 1.1rem; 
+            margin-bottom: 0.5rem; 
+            color: #fff; 
+            font-family: var(--font-serif);
+        }
+
+        /* 健康与商务的双栏布局 */
+        .grid-2 { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 4rem; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            align-items: center; 
+        }
+        
+        .text-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            font-family: var(--font-serif);
+        }
+        .text-content p, .text-content li {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .feature-img {
+            width: 100%;
+            border: 1px solid #333;
+            padding: 10px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        @media (max-width: 768px) { 
+            .grid-2 { grid-template-columns: 1fr; } 
+            .tab-btn { padding: 1rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav id="navbar">
+        <div class="logo-container">
+            <img src="image/logo.png" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="products.html" class="active">产品与服务</a>
+            <a href="sa-lifestyle.html">南澳风情</a>
+            <a href="index.html#about">关于我们</a>
+        </div>
+    </nav>
+
+    <!-- 页面主体 -->
+    <section class="page-header">
+        <h2 class="section-title fade-in">业务领域 Business Scope</h2>
+        <p class="section-subtitle fade-in">臻选红酒 · 健康生活 · 商务桥梁</p>
+
+        <!-- 选项卡按钮 -->
+        <div class="tabs-container fade-in">
+            <!-- onclick 事件必须对应下面的 id -->
+            <button class="tab-btn active" onclick="openTab(event, 'wine')">澳洲红酒</button>
+            <button class="tab-btn" onclick="openTab(event, 'health')">健康生活</button>
+            <button class="tab-btn" onclick="openTab(event, 'business')">商务活动</button>
+        </div>
+
+        <!-- 1. 澳洲红酒板块 (ID: wine) -->
+        <div id="wine" class="tab-content active">
+            <div class="grid-5">
+                <!-- 红酒 1： Woodberry (跳转到新标签页 target="_blank") -->
+                <a href="wine-woodberry.html" class="wine-card" target="_blank">
+                    <div class="wine-img-box">
+                        <img src="image/2020 Woodberry Shiraz.webp" alt="2020 Woodberry Shiraz">
+                    </div>
+                    <h3>2020 Woodberry Shiraz<br><span style="font-size:0.8em; color:#999;">林间浆果西拉子</span></h3>
+                </a>
+
+                <!-- 红酒 2： Grenache -->
+                <a href="wine-grenache.html" class="wine-card" target="_blank">
+                    <div class="wine-img-box">
+                        <img src="image/2021 MCD Grenache.webp" alt="2021 MCD Grenache">
+                    </div>
+                    <h3>2021 MCD Grenache<br><span style="font-size:0.8em; color:#999;">特定混酿歌海娜</span></h3>
+                </a>
+
+                <!-- 红酒 3： Orchard Road -->
+                <a href="wine-orchard-road.html" class="wine-card" target="_blank">
+                    <div class="wine-img-box">
+                        <img src="image/2022 Orchard Road Cabernet Sauvignon.webp" alt="2022 Orchard Road Cab">
+                    </div>
+                    <h3>2022 Orchard Road<br>Cabernet Sauvignon<br><span style="font-size:0.8em; color:#999;">果园路赤霞珠</span></h3>
+                </a>
+
+                <!-- 红酒 4： Spring Garden -->
+                <a href="wine-spring-garden.html" class="wine-card" target="_blank">
+                    <div class="wine-img-box">
+                        <img src="image/2022 Spring Garden Shiraz.webp" alt="2022 Spring Garden Shiraz">
+                    </div>
+                    <h3>2022 Spring Garden Shiraz<br><span style="font-size:0.8em; color:#999;">春园西拉子</span></h3>
+                </a>
+
+                <!-- 红酒 5： Sharegarden -->
+                <a href="wine-sharegarden.html" class="wine-card" target="_blank">
+                    <div class="wine-img-box">
+                        <img src="image/2021 Sharegarden Shiraz.webp" alt="2021 Sharegarden Shiraz">
+                    </div>
+                    <h3>2021 Sharegarden Shiraz<br><span style="font-size:0.8em; color:#999;">享园西拉子</span></h3>
+                </a>
+            </div>
+        </div>
+
+        <!-- 2. 健康生活板块 (ID: health) -->
+        <div id="health" class="tab-content">
+            <div class="grid-2">
+                <div class="text-content">
+                    <h3>澳洲纯净 自然养生</h3>
+                    <p>我们为您严选澳洲本土最顶级的健康产品，让您和家人共享南半球的纯净与健康。</p>
+                    <ul style="margin-left: 1.5rem; color: #aaa;">
+                        <li style="margin-bottom:1rem;"><strong>Blackmores 澳佳宝：</strong> 澳洲自然疗法领导品牌，提供全方位的维生素与矿物质补充。</li>
+                        <li><strong>塔斯马尼亚蜂蜜：</strong> 源自世界心脏地带的原始森林，Leatherwood 蜂蜜具有独特的抗氧化活性。</li>
+                    </ul>
+                </div>
+                <div class="image-box">
+                    <img src="image/honey.png" alt="Health Products">
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 商务活动板块 (ID: business) -->
+        <div id="business" class="tab-content">
+            <div class="grid-2">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop" class="feature-img" style="filter:grayscale(20%);" alt="Business Meeting">
+                </div>
+                <div class="text-content">
+                    <h3>连接中澳 商业赋能</h3>
+                    <p>Shanghai Tannins Brilliant 利用深厚的澳洲本土资源，为企业提供专业的商务对接服务。</p>
+                    <ul style="list-style: none; padding:0;">
+                        <li>★ <strong>高端商务考察：</strong> 定制化酒庄考察路线，对接南澳本地商业资源与政府机构。</li>
+                        <li>★ <strong>市场活动承接：</strong> 专业的品酒会策划、新品发布会、中澳文化交流晚宴。</li>
+                        <li>★ <strong>进出口咨询：</strong> 提供从供应链到清关的一站式合规咨询服务。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo">Shanghai Tannins Brilliant</span>
+        <p style="color: #666; font-size: 0.8rem;">&copy; 2025 STB. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript 逻辑：控制选项卡切换 -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabContent, tabBtns;
+            
+            // 1. 隐藏所有 tab-content
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+                tabContent[i].classList.remove("active");
+            }
+            
+            // 2. 移除所有按钮的 active 状态
+            tabBtns = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].className = tabBtns[i].className.replace(" active", "");
+            }
+            
+            // 3. 显示当前点击的板块，并添加动画类
+            var selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.style.display = "block";
+                // 延时一小会添加 active 类以触发 CSS 动画
+                setTimeout(() => {
+                    selectedTab.classList.add("active");
+                }, 10);
+            }
+            
+            // 4. 给当前点击的按钮添加 active 状态
+            evt.currentTarget.className += " active";
+        }
+
+        // 简单的渐入动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
